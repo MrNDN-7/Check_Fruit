@@ -8,17 +8,17 @@ from PIL import Image
 
 
 
-# @st.cache(suppress_st_warning=True)
-# def get_fvalue(val):    
-#     feature_dict = {"No":1,"Yes":2}    
-#     for key,value in feature_dict.items():        
-#         if val == key:            
-#             return value 
-# def get_value(val,my_dict):    
-#     for key,value in my_dict.items():        
-#         if val == key:            
-#             return value
-# app_mode = st.sidebar.selectbox('Select Page',['Home','Fruit']) #two pages
+@st.cache(suppress_st_warning=True)
+def get_fvalue(val):    
+    feature_dict = {"No":1,"Yes":2}    
+    for key,value in feature_dict.items():        
+        if val == key:            
+            return value 
+def get_value(val,my_dict):    
+    for key,value in my_dict.items():        
+        if val == key:            
+            return value
+app_mode = st.sidebar.selectbox('Select Page',['Home','Fruit']) #two pages
 
 # Constants.
 INPUT_WIDTH = 640
@@ -118,7 +118,7 @@ class PredictImage():
         return input_image
 
 def main():
-    # def PredictImg():
+    def PredictImg():
         st.title('Nhận diện trái cây')
         uploaded_image = st.file_uploader('Upload File IMG', type=['jpg', 'png', 'jpeg'])
         frame = None
@@ -138,8 +138,8 @@ def main():
                 st.image(img, channels="BGR", caption="Processed Image", use_column_width=True)
                 st.write(label)
 
-    # if app_mode == 'Fruit':
-    #     PredictImg()
+    if app_mode == 'Fruit':
+        PredictImg()
     
 if __name__ == "__main__":
     main()
